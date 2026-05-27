@@ -19,7 +19,7 @@ const plans = [
     name: "IT顧問プラン",
     price: "月額 3万円〜",
     priceNote: "",
-    highlight: true,
+    highlight: false,
     icon: "🏢",
     items: [
       "社内IT相談",
@@ -30,13 +30,13 @@ const plans = [
     ],
     cta: "相談する",
     ctaHref: "#contact",
-    badge: "人気",
+    badge: null,
   },
   {
     name: "業務自動化プラン",
     price: "初期費用 5万円〜",
     priceNote: "月額保守 1万円〜",
-    highlight: false,
+    highlight: true,
     icon: "⚙️",
     items: [
       "RPA構築",
@@ -47,7 +47,7 @@ const plans = [
     ],
     cta: "相談する",
     ctaHref: "#contact",
-    badge: null,
+    badge: "人気",
   },
   {
     name: "AI導入支援",
