@@ -4,10 +4,35 @@ import { useState } from "react";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+
+    const form = e.currentTarget;
+    const data = {
+      company: (form.elements.namedItem("company") as HTMLInputElement).value,
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+    };
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    setLoading(false);
+
+    if (res.ok) {
+      setSubmitted(true);
+    } else {
+      setError("送信に失敗しました。時間をおいて再度お試しください。");
+    }
   };
 
   return (
@@ -69,6 +94,7 @@ export default function Contact() {
               </label>
               <input
                 type="text"
+                name="company"
                 placeholder="株式会社〇〇"
                 className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all"
               />
@@ -80,6 +106,7 @@ export default function Contact() {
               </label>
               <input
                 type="text"
+                name="name"
                 required
                 placeholder="山田 太郎"
                 className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all"
@@ -92,6 +119,7 @@ export default function Contact() {
               </label>
               <input
                 type="email"
+                name="email"
                 required
                 placeholder="example@company.co.jp"
                 className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all"
@@ -103,6 +131,7 @@ export default function Contact() {
                 相談内容 <span className="text-red-400">*</span>
               </label>
               <textarea
+                name="message"
                 required
                 rows={5}
                 placeholder="例：毎月Excelで集計作業があり、自動化できないか相談したい。現在は手作業で2時間ほどかかっています。"
@@ -110,11 +139,16 @@ export default function Contact() {
               />
             </div>
 
+            {error && (
+              <p className="text-red-500 text-sm text-center">{error}</p>
+            )}
+
             <button
               type="submit"
-              className="w-full bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-black py-4 rounded-xl text-base shadow-md transition-all hover:scale-105 hover:shadow-lg"
+              disabled={loading}
+              className="w-full bg-yellow-400 hover:bg-yellow-300 disabled:opacity-60 disabled:cursor-not-allowed text-gray-900 font-black py-4 rounded-xl text-base shadow-md transition-all hover:scale-105 hover:shadow-lg"
             >
-              無料相談を申し込む →
+              {loading ? "送信中..." : "無料相談を申し込む →"}
             </button>
 
             <p className="text-center text-gray-400 text-xs">
