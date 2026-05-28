@@ -13,9 +13,29 @@ const serviceSchema = {
   "@type": "ProfessionalService",
   name: "ITお助けマン",
   description:
-    "Excel・RPA・AI・Pythonを活用して、毎月の面倒な定型業務やITの困りごとを解決します。社内IT担当を雇うほどではない中小企業に、ちょうどいいITサポートを提供します。",
+    "姫路市を中心に、Excel・RPA・AI・Pythonを活用して毎月の面倒な定型業務やITの困りごとを解決します。社内IT担当を雇うほどではない中小企業に、ちょうどいいITサポートを提供します。",
   url: SITE_URL,
-  areaServed: "JP",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "姫路市",
+    addressRegion: "兵庫県",
+    addressCountry: "JP",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 34.8194,
+    longitude: 134.6838,
+  },
+  areaServed: [
+    {
+      "@type": "City",
+      name: "姫路市",
+    },
+    {
+      "@type": "State",
+      name: "兵庫県",
+    },
+  ],
   availableLanguage: "ja",
   priceRange: "¥5,000〜",
   serviceType: "ITサポート・業務自動化・AI導入支援",

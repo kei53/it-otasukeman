@@ -59,6 +59,10 @@ export default function Hero() {
             <span className="text-yellow-400 text-lg">✓</span>
             オンライン対応
           </div>
+          <div className="flex items-center gap-1.5">
+            <span className="text-yellow-400 text-lg">✓</span>
+            姫路・兵庫県対応
+          </div>
         </div>
       </div>
 
