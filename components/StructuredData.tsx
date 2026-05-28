@@ -87,6 +87,45 @@ const serviceSchema = {
   },
 };
 
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "ITお助けマンへのご相談から導入までの流れ",
+  description: "無料相談から導入・運用まで5つのステップで完結します。",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "無料相談",
+      text: "まずは現在の業務内容や困りごとをヒアリングします。",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "改善提案",
+      text: "自動化できる業務や、ITで効率化できるポイントを提案します。",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "お見積り",
+      text: "作業内容・運用方法に応じて料金を提示します。",
+    },
+    {
+      "@type": "HowToStep",
+      position: 4,
+      name: "作成・導入",
+      text: "RPA、Excel、AI、システムなどを構築します。",
+    },
+    {
+      "@type": "HowToStep",
+      position: 5,
+      name: "運用・改善",
+      text: "導入後も必要に応じて保守・改善を行います。",
+    },
+  ],
+};
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -110,6 +149,10 @@ export default function StructuredData() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
       />
       <script
         type="application/ld+json"
