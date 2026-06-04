@@ -21,6 +21,14 @@ export default function Hero() {
           <span className="text-yellow-300">まるっとお助け</span>します
         </h1>
 
+        {/* サブキャッチコピー */}
+        <p className="text-white text-xl md:text-3xl font-black mb-6 tracking-wide drop-shadow-lg">
+          Excel業務効率化なら
+          <span className="inline-block bg-yellow-400 text-gray-900 px-3 py-0.5 rounded-lg ml-1">
+            ITお助けマン
+          </span>
+        </p>
+
         {/* 説明文 */}
         <p className="text-blue-100 text-base md:text-lg max-w-2xl mx-auto mb-4 leading-relaxed">
           Excel・RPA・AI・Pythonを活用して、毎月の面倒な定型業務やITの困りごとを解決します。

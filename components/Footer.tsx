@@ -25,11 +25,22 @@ export default function Footer() {
             <a href="#contact" className="hover:text-white transition-colors">
               お問い合わせ
             </a>
+            <a
+              href="https://www.instagram.com/it_otasukeman/?hl=ja"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors flex items-center gap-1"
+            >
+              Instagram
+            </a>
+            <a href="/privacy" className="hover:text-white transition-colors">
+              プライバシーポリシー
+            </a>
           </nav>
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-6 text-center text-xs text-gray-600">
-          © 2024 ITお助けマン. All rights reserved.
+          © 2026 ITお助けマン. All rights reserved.
         </div>
       </div>
     </footer>

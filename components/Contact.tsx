@@ -152,7 +152,7 @@ export default function Contact() {
             </button>
 
             <p className="text-center text-gray-400 text-xs">
-              ※ 強引な営業は一切行いません。
+              ※ 電話対応をご希望の方は、相談内容欄にその旨ご記入ください。
             </p>
           </form>
         )}
