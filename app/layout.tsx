@@ -65,6 +65,7 @@ export default function RootLayout({
   return (
     <html lang="ja" className="h-full">
       <head>
+        <meta name="google-site-verification" content="h_abdI-6cKmP2eY5rRSInz0zox1d-d7s7wLj4kQ40qI" />
         <StructuredData />
       </head>
       <body className="min-h-full">{children}</body>
